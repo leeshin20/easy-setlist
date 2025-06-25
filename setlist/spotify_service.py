@@ -12,7 +12,7 @@ auth_manager = SpotifyClientCredentials(client_id = CLIENT_ID, client_secret=CLI
 sp = spotipy.Spotify(auth_manager=auth_manager)
 
 def search_track_info(title: str):
-    result = sp.search(q=title, type='track', limit=1)
+    result = sp.search(q=title, type='track', limit=1, market='JP')
     tracks = result.get('tracks', {}).get('items', [])
     if not tracks:
         return None
